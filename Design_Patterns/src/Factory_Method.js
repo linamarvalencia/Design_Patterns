@@ -6,6 +6,10 @@ function paellaFactoryMethod(){
     this.crearPaella = function(type){
         if(type === "Mariscos"){
             return paellaMariscos();
+        }else if(type === "Vegetariana"){
+            return paellaVegetariana();
+        }else if(type === "CarnePollo"){
+            return paellaCarnePollo();
         }
     }
 }
@@ -20,11 +24,23 @@ function paellaProduct(){
 }
 
 /*Se construye una funcion propia para crear una paella segun el tipo*/
-function paellaMariscos(){
+var paellaGetProduct = new paellaProduct();
 
-	var paellaGetProduct = new paellaProduct();	
+function paellaMariscos(){	
     var ingredientesMariscos = ["calamares", "mejillones", "tomate", "camarones"];
     return new paellaGetProduct.product(ingredientesMariscos);
+}
+
+function paellaVegetariana(){
+
+    var ingredientesVegetariana = ["tomate", "albaca", "berenjena"];
+    return new paellaGetProduct.product(ingredientesVegetariana);
+}
+
+function paellaCarnePollo(){
+
+    var ingredientesPollo = ["pernil de pollo", "carne de res desemechada"];
+    return new paellaGetProduct.product(ingredientesPollo);
 }
 
 /******* Construir las funciones para las paellas que faltan ******/
